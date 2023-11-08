@@ -10,6 +10,13 @@ const compiler = webpack(config);
 
 const PORT = process.env.PORT || 3001;
 
+// parse incoming requests with JSON payloads
+app.use(express.json());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use('/', express.static(path.join(__dirname, './../dist')));
+}
+
 app.use(
   webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
