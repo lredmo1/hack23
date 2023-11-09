@@ -1,6 +1,10 @@
 # hack23
 
-After cloning repo, run npm install in terminal. Run 'npm run dev' to view
+After cloning repo, run npm install in terminal. 
+
+For the database, replace the mongoAtlasUri variable by the URI provided in Slack. 
+
+Run 'npm run dev' to view
 project in dev mode.
 
 # Pull Request Commands
