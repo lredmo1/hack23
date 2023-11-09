@@ -12,6 +12,8 @@ const videoUploadRoutes = require("./routes/videoUploadRoutes");
 // MODELS IMPORT
 const User = require("./models/User.model");
 const TeachingText = require("./models/TeachingText.model");
+const Thread = require("./models/Thread.model");
+const Reply = require("./models/Reply.model");
 
 const mongoAtlasUri = process.env.DATABASE_URL
   
@@ -58,6 +60,79 @@ app.get('/hello', (req, res) => {
 
 
 // TO BE DELETED, ROUTES FOR TEST PURPOSE
+
+
+
+// Route to create a new thread
+// app.post("/thread", async (req, res) => {
+//   const { content, userId } = req.body;
+
+//   try {
+//     let user;
+
+//     if (userId) {
+//       // If user ID is provided in the request, use it
+//       user = await User.findById(userId);
+
+//       if (!user) {
+//         return res.status(404).json({ message: "User not found" });
+//       }
+//     } else {
+//       // If no user ID is provided, use a default user ID
+//       const defaultUserId = "654d297fc93255b6bd60ec00"; // Replace with your default user ID
+//       user = await User.findById(defaultUserId);
+
+//       if (!user) {
+//         return res.status(404).json({ message: "Default user not found" });
+//       }
+//     }
+
+//     const newThread = new Thread({
+//       content,
+//       user: user._id, // Associate the thread with the user
+//     });
+
+//     const insertedThread = await newThread.save();
+
+//     return res.status(201).json(insertedThread);
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
+
+
+// app.post("/reply", async (req, res) => {
+//   const { content, userId, threadId } = req.body;
+
+//   try {
+//     // Check if the provided user ID exists
+//     const user = await User.findById(userId);
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     // Check if the provided thread ID exists
+//     const thread = await Thread.findById(threadId);
+//     if (!thread) {
+//       return res.status(404).json({ message: "Thread not found" });
+//     }
+
+//     const newReply = new Reply({
+//       content,
+//       user: userId,   // Associate the reply with the user
+//       thread: threadId, // Associate the reply with the thread
+//     });
+
+//     const insertedReply = await newReply.save();
+
+//     return res.status(201).json(insertedReply);
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
+
 
 // app.post("/teachingtext", async (req, res) => {
 //   const { title, description, img, video, categories } = req.body;

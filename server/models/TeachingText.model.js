@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const TeachingTextSchema = new mongoose.Schema(
+const teachingTextSchema = new mongoose.Schema(
   {
     title: { type: String, required: true},
     description: { type: String, required: true },
@@ -14,5 +14,5 @@ const TeachingTextSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const TeachingText = mongoose.model("TeachingText", TeachingTextSchema);
+const TeachingText = mongoose.model("TeachingText", teachingTextSchema);
 module.exports = TeachingText;

@@ -1,6 +1,6 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 
-const replySchema = new Schema(
+const replySchema = new mongoose.Schema(
   {
     content: {
       type: String,
@@ -19,5 +19,5 @@ const replySchema = new Schema(
   }
 );
 
-const Reply = model("reply", replySchema);
+const Reply = mongoose.model("Reply", replySchema);
 module.exports = Reply;
