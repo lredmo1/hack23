@@ -6,12 +6,13 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const config = require('./../webpack.config');
 const compiler = webpack(config);
-
+const uploadRoutes = require("./routes/uploadRoutes");
+const videoUploadRoutes = require("./routes/videoUploadRoutes");
 // MODELS IMPORT
 const User = require("./models/User.model");
 
-const mongoAtlasUri = "THIS SHOULD BE REPLACED BY THE URI FROM MONGO DB ATLAS"
-
+const mongoAtlasUri = process.env.DATABASE_URL
+  
 const app = express();
 
 // parse incoming requests with JSON payloads
@@ -23,6 +24,8 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
 
+app.use("/api/uploads",uploadRoutes)
+app.use("/api/video-uploads", videoUploadRoutes);
 // parse incoming requests with urlencoded payloads
 app.use(express.urlencoded({ extended: true }));
 
