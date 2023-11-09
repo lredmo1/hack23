@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
 
-const KnowledgeSchema = new mongoose.Schema(
+const TeachingTextSchema = new mongoose.Schema(
   {
     title: { type: String, required: true},
     description: { type: String, required: true },
-    img: { type: String },
-    video: { type: String },
     categories: { type: Array, required: true },
     user: 
       {
@@ -16,5 +14,5 @@ const KnowledgeSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Knowledge = mongoose.model("Knowledge", KnowledgeSchema);
-module.exports = Knowledge;
+const TeachingText = mongoose.model("TeachingText", TeachingTextSchema);
+module.exports = TeachingText;

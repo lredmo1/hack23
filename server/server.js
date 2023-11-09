@@ -8,8 +8,10 @@ const config = require('./../webpack.config');
 const compiler = webpack(config);
 const uploadRoutes = require("./routes/uploadRoutes");
 const videoUploadRoutes = require("./routes/videoUploadRoutes");
+
 // MODELS IMPORT
 const User = require("./models/User.model");
+const TeachingText = require("./models/TeachingText.model");
 
 const mongoAtlasUri = process.env.DATABASE_URL
   
@@ -44,7 +46,7 @@ app.use(
 // ADD ROUTES HERE
 // ex app.use('/comments', CommentRouter);
 
-// HOME
+// TEST ROUTE
 
 app.get("/", async (req, res) => {
   return res.json({ message: "Hello, World ✌️" });
@@ -54,18 +56,47 @@ app.get('/hello', (req, res) => {
   res.send('hello world');
 });
 
-// USER ROUTES
 
-app.get("/users", async (req, res) => {
-  const allUsers = await User.find();
-  return res.status(200).json(allUsers);
-});
+// TO BE DELETED, ROUTES FOR TEST PURPOSE
 
-app.post("/user", async (req, res) => {
-  const newUser = new User({ ...req.body });
-  const insertedUser = await newUser.save();
-  return res.status(201).json(insertedUser);
-})
+// app.post("/teachingtext", async (req, res) => {
+//   const { title, description, img, video, categories } = req.body;
+//   const userId = "654d297fc93255b6bd60ec00"; // Use the actual user ID
+
+//   try {
+//     const user = await User.findById(userId);
+
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     const newTeachingText = new TeachingText({
+//       title,
+//       description,
+//       categories,
+//       user: userId, // Associate the knowledge with the user
+//     });
+
+//     const insertedTeachingText = await newTeachingText.save();
+
+//     return res.status(201).json(insertedTeachingText);
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
+
+
+// app.get("/users", async (req, res) => {
+//   const allUsers = await User.find();
+//   return res.status(200).json(allUsers);
+// });
+
+// app.post("/user", async (req, res) => {
+//   const newUser = new User({ ...req.body });
+//   const insertedUser = await newUser.save();
+//   return res.status(201).json(insertedUser);
+// })
 
 // serve 404 status
 app.use((req, res) => res.sendStatus(404));
