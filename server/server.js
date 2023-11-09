@@ -7,6 +7,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const config = require('./../webpack.config');
 const compiler = webpack(config);
 const uploadRoutes = require("./routes/uploadRoutes");
+const videoUploadRoutes = require("./routes/videoUploadRoutes");
 // MODELS IMPORT
 const User = require("./models/User.model");
 
@@ -24,6 +25,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3001;
 
 app.use("/api/uploads",uploadRoutes)
+app.use("/api/video-uploads", videoUploadRoutes);
 // parse incoming requests with urlencoded payloads
 app.use(express.urlencoded({ extended: true }));
 
