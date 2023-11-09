@@ -2,8 +2,6 @@ const path = require('path');
 const dotenv = require('dotenv').config();
 const express = require('express');
 const mongoose = require("mongoose");
-// require("./config/dbConfig");
-
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const config = require('./../webpack.config');
@@ -11,6 +9,8 @@ const compiler = webpack(config);
 
 // MODELS IMPORT
 const User = require("./models/User.model");
+
+const mongoAtlasUri = "THIS SHOULD BE REPLACED BY THE URI FROM MONGO DB ATLAS"
 
 const app = express();
 
@@ -64,8 +64,6 @@ app.post("/user", async (req, res) => {
   return res.status(201).json(insertedUser);
 })
 
-
-
 // serve 404 status
 app.use((req, res) => res.sendStatus(404));
 
@@ -81,18 +79,23 @@ app.use((err, req, res, next) => {
   res.status(errorObj.status).send(errorObj.message);
 });
 
+try {
+  // Connect to the MongoDB cluster
+  mongoose.connect(mongoAtlasUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const start = async () => {
-  try {
-    await mongoose.connect(
-      "mongodb://localhost:27017/gdi2023"
-    );
-    app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-  } catch (error) {
-    console.error(error);
-    process.exit(1);
-  }
-};
+  // Listen for successful connection
+  mongoose.connection.on('connected', () => {
+    console.log('Mongoose is connected');
+  });
 
-start();
+  // Listen for connection errors
+  mongoose.connection.on('error', (err) => {
+    console.error('Mongoose connection error: ' + err);
+  });
+
+} catch (e) {
+  console.log('Could not connect');
+}
+
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
