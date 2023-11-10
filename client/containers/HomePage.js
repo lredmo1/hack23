@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import LessonCard from '../components/LessonCard';
 import { Container, Grid } from '@mui/material';
+
 
 function HomePage() {
 	const[lessons, setLessons] = useState([]); 
@@ -18,7 +18,6 @@ function HomePage() {
 
 	}, []);
   return (
-    <>
     <div>
       <h1>Available Lessons</h1>
       <Grid rowSpacing={4} columnSpacing={3}
@@ -30,16 +29,12 @@ function HomePage() {
           console.log(lesson);
           return(
             <Grid item key={index} xs={3}>
-            <Link to={`/singlelesson`}>
               <LessonCard title={lesson.title} desc={lesson.description} id={lesson._id}></LessonCard>
-              </Link>
-
             </Grid>
           )
         })}
       </Grid>
     </div>
-    </>
   );
 }
 
