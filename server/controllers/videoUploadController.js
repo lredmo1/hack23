@@ -12,15 +12,16 @@ const createVideoUpload = async (req, res) => {
   }
 };
 
-// Get all video uploads
+// Get all video uploads in reverse order
 const getAllVideoUploads = async (req, res) => {
   try {
-    const videoUploads = await VideoUpload.find();
+    const videoUploads = await VideoUpload.find().sort({ createdAt: -1 });
     res.status(200).json(videoUploads);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 // Get a single video upload by ID
 const getVideoUploadById = async (req, res) => {
