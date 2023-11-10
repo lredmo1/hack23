@@ -8,6 +8,8 @@ const config = require('./../webpack.config');
 const compiler = webpack(config);
 const uploadRoutes = require("./routes/uploadRoutes");
 const videoUploadRoutes = require("./routes/videoUploadRoutes");
+const teachingTextRoutes = require("./routes/teachingTextRoutes");
+const teachingVideoRoutes = require("./routes/teachingVideoRoutes");
 
 // MODELS IMPORT
 const User = require("./models/User.model");
@@ -30,6 +32,9 @@ const PORT = process.env.PORT || 3001;
 
 app.use("/api/uploads",uploadRoutes)
 app.use("/api/video-uploads", videoUploadRoutes);
+app.use("/api/teaching-texts", teachingTextRoutes);
+app.use("/api/teaching-videos", teachingVideoRoutes);
+
 // parse incoming requests with urlencoded payloads
 app.use(express.urlencoded({ extended: true }));
 
