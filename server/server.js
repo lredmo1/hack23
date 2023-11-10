@@ -181,6 +181,35 @@ app.get("/users", async (req, res) => {
   return res.status(200).json(allUsers);
 });
 
+
+app.post("/teachingtext", async (req, res) => {
+  const { title, description, img, video, categories } = req.body;
+  const userId = "654d297fc93255b6bd60ec00"; // Use the actual user ID
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const newTeachingText = new TeachingText({
+      title,
+      description,
+      categories,
+      user: userId, // Associate the knowledge with the user
+    });
+
+    const insertedTeachingText = await newTeachingText.save();
+
+    return res.status(201).json(insertedTeachingText);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+
 // app.post("/user", async (req, res) => {
 //   const newUser = new User({ ...req.body });
 //   const insertedUser = await newUser.save();

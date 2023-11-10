@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import CreateLessonForm from './CreateLessonForm';
 
 function LessonPost({title, desc, id}) {
 
@@ -9,6 +10,7 @@ function LessonPost({title, desc, id}) {
         console.log('go to lesson: '+ id);
     }
     return(
+        <>
         <Card sx={{ maxWidth: 345 }} className="lessonCard">
             <CardActionArea onClick={handleClickLesson}>
                 <CardMedia
@@ -27,6 +29,8 @@ function LessonPost({title, desc, id}) {
                 </CardContent>
             </CardActionArea>
         </Card>
+        <CreateLessonForm></CreateLessonForm>
+        </>
     )
 }
 
