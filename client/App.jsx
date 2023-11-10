@@ -12,7 +12,7 @@ import UploadContent from "./containers/UploadContent";
 
 import AboutPage from "./containers/AboutPage";
 import NavBar from "./components/Navbar";
-
+import OneTeachingText from "./components/OneTeachingText";
 
 const App = () => {
   return (
@@ -30,7 +30,7 @@ const App = () => {
 
         <Route path="/learn" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-
+        <Route path="/singlelesson" element={<OneTeachingText />} />
       </Routes>
     </BrowserRouter>
   );
