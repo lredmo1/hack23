@@ -2,62 +2,63 @@ import React, {useState, useEffect} from 'react';
 import ThreadCard from '../components/ThreadCard';
 import "../stylesheets/DiscussionThreads.scss";
 
-function DiscussionThreads( lessonId ) {
+function DiscussionThreads( {lessonId} ) {
 
-	const fakeThreads = [
-		{
-			id: 123,
-			user: {
-				name: 'Lisa'
-			},
-			content: 'Test thread one',
-			replies: [
-				{
-					id: 246,
-					user: {
-						name: 'Jay'
-					},
-					content: 'Test reply one',
-				},
-				{
-					id: 122,
-					user: {
-						name: 'Bey'
-					},
-					content: 'Test reply two',
-				}
-			]
-		},
-		{
-			id: 456,
-			user: {
-				name: 'Mark'
-			},
-			content: 'Test thread two',
-			replies: [
-				{
-					id: 789,
-					user: {
-						name: 'Jay'
-					},
-					content: 'Test reply three',
-				},
-				{
-					id: 135,
-					user: {
-						name: 'Bey'
-					},
-					content: 'Test reply four',
-				}
-			]
+	// const fakeThreads = [
+	// 	{
+	// 		id: 123,
+	// 		user: {
+	// 			name: 'Lisa'
+	// 		},
+	// 		content: 'Test thread one',
+	// 		replies: [
+	// 			{
+	// 				id: 246,
+	// 				user: {
+	// 					name: 'Jay'
+	// 				},
+	// 				content: 'Test reply one',
+	// 			},
+	// 			{
+	// 				id: 122,
+	// 				user: {
+	// 					name: 'Bey'
+	// 				},
+	// 				content: 'Test reply two',
+	// 			}
+	// 		]
+	// 	},
+	// 	{
+	// 		id: 456,
+	// 		user: {
+	// 			name: 'Mark'
+	// 		},
+	// 		content: 'Test thread two',
+	// 		replies: [
+	// 			{
+	// 				id: 789,
+	// 				user: {
+	// 					name: 'Jay'
+	// 				},
+	// 				content: 'Test reply three',
+	// 			},
+	// 			{
+	// 				id: 135,
+	// 				user: {
+	// 					name: 'Bey'
+	// 				},
+	// 				content: 'Test reply four',
+	// 			}
+	// 		]
 
-		}
-	]
+	// 	}
+	// ]
+
 	const [threads, setThreads] = useState([]);
 	const [formData, setFormData] = useState({ 
 		content: "",
 		userId: "654c51830aef36adde42f0a0",
-		// teachingtext: "654d55290487eb9c970237ae",
+		teachingtext: lessonId,
 	})
 
 	const handleChange = (e) => {
@@ -86,18 +87,18 @@ function DiscussionThreads( lessonId ) {
 	useEffect(() => {
 
 		// Fetch threads
-		fetch("http://localhost:3000/threads/")
+		// fetch("http://localhost:3000/threads/")
+		// 	.then((resp) => resp.json())
+		// 	.then(setThreads)
+
+		fetch(`http://localhost:3000/threads/?lessonId=${lessonId}`)
 			.then((resp) => resp.json())
 			.then(setThreads)
-
-			// fetch("http://localhost:3000/api/threads/?lessonId=${lessonId}")
-			// .then((resp) => resp.json())
-			// .then(setThreads)
 
 	}, [lessonId]);
 // 
 	// const threadCards = threads.map((thread) => <div><p>{thread.content}</p></div>)
-	const threadCards = threads.map((thread) => <ThreadCard thread={thread} key={thread.id} setThreads={setThreads}/>)
+	const threadCards = threads.map((thread) => <ThreadCard thread={thread} key={thread.id} setThreads={setThreads} lessonId={lessonId}/>)
 
 	return (
 		<div className="thread-container">

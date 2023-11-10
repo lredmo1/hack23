@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
-function ThreadCard( {thread, setThreads} ) {
+function ThreadCard( {thread, setThreads, lessonId} ) {
 
 	const [showReplyForm, setShowReplyForm] = useState(false)
 	const [formData, setFormData] = useState({ 
 		content: "",
 		userId: "654c51830aef36adde42f0a0",
-		// teachingtext: "654d55290487eb9c970237ae",
+		teachingtext: lessonId,
 	})
 
 	const handleChange = (e) => {
@@ -25,6 +25,7 @@ function ThreadCard( {thread, setThreads} ) {
         .then(resp => resp.json())
         .then(data => {
             setThreads(current => [data, ...current])
+			setShowReplyForm(false)
             setFormData({
 				content: "",
             })
