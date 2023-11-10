@@ -29,7 +29,7 @@ function LessonPost({title, desc, id}) {
                 </CardContent>
             </CardActionArea>
         </Card>
-        <CreateLessonForm></CreateLessonForm>
+        {/* <CreateLessonForm></CreateLessonForm> */}
         </>
     )
 }
