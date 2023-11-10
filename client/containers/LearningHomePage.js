@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import LessonPost from '../components/LessonPost';
 import { Container, Grid } from '@mui/material';
 
@@ -29,7 +30,10 @@ function HomePage() {
           console.log(lesson);
           return(
             <Grid item key={index} xs={3}>
+            <Link to={`/singlelesson`}>
               <LessonPost title={lesson.title} desc={lesson.description} id={lesson._id}></LessonPost>
+              </Link>
+
             </Grid>
           )
         })}
