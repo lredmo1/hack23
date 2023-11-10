@@ -69,8 +69,6 @@ app.get('/hello', (req, res) => {
 });
 
 
-// TO BE DELETED, ROUTES FOR TEST PURPOSE
-
 // Route to create a new thread
 app.post("/thread", async (req, res) => {
   const { content, userId } = req.body;
@@ -109,10 +107,11 @@ app.post("/thread", async (req, res) => {
   }
 });
 
+// Route to get all threads
 app.get("/threads", async (req, res) => {
-  const allThreads = await Thread.find();
-  return res.status(200).json(allThreads);
-});
+	const allThreads = await Thread.find();
+	return res.status(200).json(allThreads);
+  });
 
 
 
