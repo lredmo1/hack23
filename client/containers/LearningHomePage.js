@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import LessonCard from '../components/LessonPost';
+import LessonCard from '../components/LessonCard';
 import { Container, Grid } from '@mui/material';
 
 function HomePage() {

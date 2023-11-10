@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import LessonCard from '../components/LessonPost';
+import LessonCard from '../components/LessonCard';
 import { Container, Grid } from '@mui/material';
 
 
