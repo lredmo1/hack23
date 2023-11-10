@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import DiscussionThreads from "./DiscussionThreads";
@@ -42,7 +43,7 @@ const Home = () => {
             </Button>
           </Link>
           {/* MAKE A LINK TO GINA 'S WORK ON CLOUDINARY */}
-          <Link to="/lesson">
+          <Link to="/uploadContent">
             <Button variant="primary" style={buttonTeachStyle}>
               <img src={imageUrlTeach} alt="teach logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
             </Button>
@@ -50,6 +51,7 @@ const Home = () => {
         </div>
       </div>
     </>
+
   );
 };
 
