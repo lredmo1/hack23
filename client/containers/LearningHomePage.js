@@ -41,11 +41,11 @@ function HomePage() {
             console.log(lesson);
             return (
               <Grid item key={index} xs={3}>
-                <LessonPost
+                <LessonCard
                   title={lesson.title}
                   desc={lesson.description}
                   id={lesson._id}
-                ></LessonPost>
+                ></LessonCard>
               </Grid>
             );
           })}
