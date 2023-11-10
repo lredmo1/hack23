@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import StandardHeader from "../components/common/StandardHeader";
 import { Button, CircularProgress, Dialog, DialogContent, Grid, TextField } from "@mui/material";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 function UploadContent() {
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -12,7 +12,7 @@ function UploadContent() {
     upload: "",
   });
   const[loading, setLoading] = useState(false);
-const navigate = useNavigate();
+
   const handleChange = async (e) => {
     if (e.target.type === "file") {
       console.log(e.target.files);

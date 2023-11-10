@@ -8,7 +8,7 @@ function AboutPage() {
 		<>
 
 <div className="about-section">
-<img
+			<img
               className="logo-nav-bar"
               src="https://res.cloudinary.com/dsioshcio/image/upload/v1699583151/image_5_hpfwic.png"
               alt="logo"
@@ -70,7 +70,7 @@ function AboutPage() {
 					</li>
 				</ul>
         <p>
-			<Link to="/uploadContent">
+			<Link to="/teach">
 			<button className="button">Start teaching</button>
 			</Link>
 		
