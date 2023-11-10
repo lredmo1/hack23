@@ -5,12 +5,12 @@ import Home from "./containers/Home";
 import UserProfile from "./containers/UserProfile";
 import DiscussionThreads from "./containers/DiscussionThreads";
 import HomePage from "./containers/LearningHomePage";
-
 import TeachingContainer from "./containers/TeachingContainer";
 import UploadContent from "./containers/UploadContent";
 
 import AboutPage from "./containers/AboutPage";
 import NavBar from "./components/Navbar";
+import Footer from "./components/Footer";
 import OneTeachingText from "./components/OneTeachingText";
 
 const App = () => {
@@ -22,14 +22,16 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/threads" element={<DiscussionThreads />} />
-
+        {/* <Route path="/lesson" element={<LessonPost />} /> */}
         <Route path="/teaching" element={<TeachingContainer />} />
+        <Route path="/uploadContent" element={<UploadContent />} />
         <Route path="/teach" element={<UploadContent />} />
-
         <Route path="/learn" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/singlelesson" element={<OneTeachingText />} />
       </Routes>
+
+      <Footer></Footer>
     </BrowserRouter>
   );
 };

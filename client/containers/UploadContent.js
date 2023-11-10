@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import StandardHeader from "../components/common/StandardHeader";
 import { Button, CircularProgress, Dialog, DialogContent, Grid, TextField } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function UploadContent() {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const [formdata, setFormdata] = useState({
     caption: "",
     upload: "",
@@ -21,7 +24,7 @@ const navigate = useNavigate();
       setFormdata({ ...formdata, [e.target.name]: e.target.value });
     }
   };
- 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
@@ -29,12 +32,15 @@ const navigate = useNavigate();
       const formData = new FormData();
       formData.append("video", formdata.upload);
       const response = await axios.post("/api/uploads", formData);
-     
+
       const entryResponse = await axios.post("/api/video-uploads", {
         video: response.data.url,
         caption: formdata.caption,
       });
-     navigate("/learn");
+
+      // Redirect to "/learn" after successful submission
+      navigate('/learn');
+
     } catch (error) {
       console.error("An error occurred:", error);
     } finally {
@@ -42,6 +48,7 @@ const navigate = useNavigate();
     }
 
   };
+
   return (
     <div
       elevation={3}

@@ -8,14 +8,14 @@ import Navbar from "../components/Navbar";
 
 const Home = () => {
   const [intro, updateIntro] = useState("insert text here");
-  const imageUrlLearn = 'https://res.cloudinary.com/dsioshcio/image/upload/v1699640845/Learn_Button_pancab.png';
-  const imageUrlTeach = 'https://res.cloudinary.com/dsioshcio/image/upload/v1699641120/Teach_Button_4_akhq0m.png';
+  const imageUrlLearn = 'https://res.cloudinary.com/dsioshcio/image/upload/v1699655860/SeeOne_ma2ksn.png';
+  const imageUrlTeach = 'https://res.cloudinary.com/dsioshcio/image/upload/v1699655860/TeachOne_zs48ff.png';
 
   const buttonLearnStyle = {
     fontFamily: "Montserrat, sans-serif",
     fontWeight: "bold",
     fontSize: "2rem",
-    backgroundColor: "#0070C1",
+    backgroundColor: "#EBCD54",
     width: "300px",
     height: "300px",
     marginTop: "20vh", // Add margin bottom for space
@@ -25,7 +25,7 @@ const Home = () => {
     fontFamily: "Montserrat, sans-serif",
     fontWeight: "bold",
     fontSize: "2rem",
-    backgroundColor: "#299547",
+    backgroundColor: "#4C6D90",
     width: "300px",
     height: "300px",
     marginTop: "20vh", // Add margin bottom for space
