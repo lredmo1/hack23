@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-// import ThreadCard from '../components/ThreadCard';
+import ThreadCard from '../components/ThreadCard';
 import "../stylesheets/DiscussionThreads.scss";
 
-function DiscussionThreads( lessonId, user ) {
+function DiscussionThreads( lessonId ) {
 
 	const fakeThreads = [
 		{
@@ -50,14 +50,14 @@ function DiscussionThreads( lessonId, user ) {
 					content: 'Test reply four',
 				}
 			]
-			
+
 		}
 	]
-	const [threads, setThreads] = useState(fakeThreads);
+	const [threads, setThreads] = useState([]);
 	const [formData, setFormData] = useState({ 
 		content: "",
-		user: user,
-		teachingtext: lessonId,
+		userId: "654c51830aef36adde42f0a0",
+		// teachingtext: "654d55290487eb9c970237ae",
 	})
 
 	const handleChange = (e) => {
@@ -81,12 +81,12 @@ function DiscussionThreads( lessonId, user ) {
             })
         });
     }
-	
+
 
 	useEffect(() => {
 
 		// Fetch threads
-		fetch("http://localhost:3000/threads")
+		fetch("http://localhost:3000/threads/")
 			.then((resp) => resp.json())
 			.then(setThreads)
 
@@ -95,20 +95,20 @@ function DiscussionThreads( lessonId, user ) {
 			// .then(setThreads)
 
 	}, [lessonId]);
+// 
+	// const threadCards = threads.map((thread) => <div><p>{thread.content}</p></div>)
+	const threadCards = threads.map((thread) => <ThreadCard thread={thread} key={thread.id} setThreads={setThreads}/>)
 
-	const threadCards = threads.map((thread) => <div><p>{thread.content}</p></div>)
-	// const threadCards = fakeThreads.map((thread) => <ThreadCard thread={thread} user={user} key={thread.id} />)
-	
 	return (
 		<div className="thread-container">
 			<form onSubmit={handleSubmit}>
-            <label>{'Discussion: '}
+            <label>{'Leave a Comment: '}
 				<input 
 					name="content" 
 					type="text" 
 					value={formData.content} 
 					onChange={handleChange} 
-					placeholder="Create thread..." required>
+					placeholder="Comment here..." required>
 				</input>
 			</label>
             <button className='submit buttons' type="submit">{'Submit'}</button>

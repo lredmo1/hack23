@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import DiscussionThreads from './DiscussionThreads';
 
 function TeachingContainer() {
 	const[lessons, setLessons] = useState([]);
@@ -24,7 +25,7 @@ function TeachingContainer() {
 		<div>
 			{lessonLinks}
 			{/* teaching content component here */}
-			{/* discussion thread component here */}
+			{/* <DiscussionThreads lessonId={lessonId}/> */}
 		</div>
 	);
 

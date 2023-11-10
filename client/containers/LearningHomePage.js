@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import LessonPost from '../components/LessonPost';
+import { Link } from 'react-router-dom';
+import LessonCard from '../components/LessonCard';
 import { Container, Grid } from '@mui/material';
 import VideoPost from '../components/VideoPost';
 
@@ -26,6 +27,7 @@ function HomePage() {
   console.log(videos);
   return (
     <>
+
       <div>
         <h1>Available Lessons</h1>
         <Grid
@@ -72,6 +74,7 @@ function HomePage() {
           })}
         </Grid>
       </div>
+
     </>
   );
 }
