@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import DiscussionThreads from "./DiscussionThreads";
-
+import HomePage from "./HomePage";
 
 const Home = () => {
   const [intro, updateIntro] = useState("insert text here");
@@ -21,6 +21,8 @@ const Home = () => {
       <Button variant="secondary" style={{ backgroundColor: "#273D0E", width: "200px", height: "200px" }}>
         TEACH
       </Button>
+
+      <HomePage></HomePage>
 
     </div>
   );

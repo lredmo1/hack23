@@ -4,6 +4,8 @@ import "./stylesheets/App.scss";
 import Home from "./containers/Home";
 import UserProfile from "./containers/UserProfile";
 import DiscussionThreads from "./containers/DiscussionThreads";
+import HomePage from "./containers/HomePage";
+import LessonPost from "./components/LessonPost";
 
 const App = () => {
   return (
