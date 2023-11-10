@@ -5,7 +5,6 @@ import Home from "./containers/Home";
 import UserProfile from "./containers/UserProfile";
 import DiscussionThreads from "./containers/DiscussionThreads";
 import HomePage from "./containers/LearningHomePage";
-import LessonPost from "./components/LessonPost";
 
 import TeachingContainer from "./containers/TeachingContainer";
 import UploadContent from "./containers/UploadContent";
@@ -13,6 +12,7 @@ import UploadContent from "./containers/UploadContent";
 import AboutPage from "./containers/AboutPage";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
+import OneTeachingText from "./components/OneTeachingText";
 
 const App = () => {
   return (
@@ -28,6 +28,7 @@ const App = () => {
         <Route path="/uploadContent" element={<UploadContent />} />
         <Route path="/learn" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/singlelesson" element={<OneTeachingText />} />
       </Routes>
 
       <Footer></Footer>
