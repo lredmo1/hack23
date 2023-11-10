@@ -27,7 +27,6 @@ app.use(express.json());
 
 app.use(cors())
 
-
 // REQUIRED ROUTERS
 
 // REQUIRED CONTROLLERS (IF NEEDED HERE)
@@ -69,11 +68,9 @@ app.get('/hello', (req, res) => {
 });
 
 
-// TO BE DELETED, ROUTES FOR TEST PURPOSE
-
 // Route to create a new thread
 app.post("/thread", async (req, res) => {
-  const { content, userId } = req.body;
+  const { content, userId, teachingtext } = req.body;
 
   try {
     let user;
@@ -95,24 +92,50 @@ app.post("/thread", async (req, res) => {
       }
     }
 
+	let teachingText;
+
+    if (teachingtext) {
+      // If lesson ID is provided in the request, use it
+      teachingText = await TeachingText.findById(teachingtext);
+
+      if (!teachingText) {
+        return res.status(404).json({ message: "User not found" });
+      }
+    } else {
+      // If no lesson ID is provided, use a default lesson ID
+      const defaultLessonId = "654d55290487eb9c970237ae"; // Replace with your default lesson ID
+      teachingText = await TeachingText.findById(defaultLessonId);
+
+      if (!user) {
+        return res.status(404).json({ message: "Default user not found" });
+      }
+    }
+
     const newThread = new Thread({
       content,
       user: user._id, // Associate the thread with the user
+	  teachingtext: teachingText,
     });
 
     const insertedThread = await newThread.save();
 
-    return res.status(201).json(insertedThread);
+	return res.status(201).json(insertedThread);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
+// Route to get all threads
 app.get("/threads", async (req, res) => {
-  const allThreads = await Thread.find();
-  return res.status(200).json(allThreads);
-});
+	const allThreads = await Thread.find({
+		teachingtext: req.query.lessonId
+	});
+
+	Thread.fin
+
+	return res.status(200).json(allThreads);
+  });
 
 
 

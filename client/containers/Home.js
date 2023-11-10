@@ -43,7 +43,8 @@ const Home = () => {
             </Button>
           </Link>
           {/* MAKE A LINK TO GINA 'S WORK ON CLOUDINARY */}
-          <Link to="/uploadContent">
+          <Link to="/teach">
+
             <Button variant="primary" style={buttonTeachStyle}>
               <img src={imageUrlTeach} alt="teach logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
             </Button>

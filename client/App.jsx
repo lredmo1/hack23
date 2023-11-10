@@ -25,6 +25,7 @@ const App = () => {
         {/* <Route path="/lesson" element={<LessonPost />} /> */}
         <Route path="/teaching" element={<TeachingContainer />} />
         <Route path="/uploadContent" element={<UploadContent />} />
+        <Route path="/teach" element={<UploadContent />} />
         <Route path="/learn" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/singlelesson" element={<OneTeachingText />} />
