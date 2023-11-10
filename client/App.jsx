@@ -1,28 +1,22 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import './stylesheets/App.scss';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./stylesheets/App.scss";
+import Home from "./containers/Home";
+import UserProfile from "./containers/UserProfile";
+import DiscussionThreads from "./containers/DiscussionThreads";
+import HomePage from "./containers/HomePage";
+import LessonPost from "./components/LessonPost";
 
 const App = () => {
-  const [intro, updateIntro] = useState('insert text here');
-
-//   useEffect(() => {
-//     async function getIntro() {
-//       try {
-//         const response = await fetch('/api/hello');
-//         const fetchedIntro = await response.json();
-//         console.log(fetchedIntro);
-//         updateIntro(fetchedIntro);
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     }
-//     getIntro();
-//   }, []);
-
   return (
-    <div id='app'>
-      <p>{intro}</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/threads" element={<DiscussionThreads />} />
+        <Route path="/lesson" element={<LessonPost />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
