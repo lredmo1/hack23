@@ -25,7 +25,7 @@ const Home = () => {
     fontFamily: "Montserrat, sans-serif",
     fontWeight: "bold",
     fontSize: "2rem",
-    // backgroundColor: "#299547",
+    backgroundColor: "#4C6D90",
     width: "300px",
     height: "300px",
     marginTop: "20vh", // Add margin bottom for space

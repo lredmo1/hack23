@@ -8,7 +8,11 @@ function AboutPage() {
 		<>
 
 <div className="about-section">
-  <h1>So Do To</h1>
+<img
+              className="logo-nav-bar"
+              src="https://res.cloudinary.com/dsioshcio/image/upload/v1699583151/image_5_hpfwic.png"
+              alt="logo"
+            ></img>
   <p>Here at Sodoto we know that true mastery of a subject comes with that ability to teach that skill to others. Based on the “see one, do one, teach one” philosophy, we strive to be a platform where learners of all types can both teach and learn from each other.</p>
 </div>
 
