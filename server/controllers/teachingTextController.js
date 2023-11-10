@@ -2,7 +2,7 @@
 const TeachingText = require("../models/TeachingText.model.js");
 
 
-// Create a new video upload
+// Create a new teaching text
 const createTeachingText = async (req, res) => {
    try {
      const { title, description, categories, userId } = req.body;
@@ -15,7 +15,7 @@ const createTeachingText = async (req, res) => {
  };
 
 
-// Get all video uploads
+// Get all teaching texts
 const getAllTeachingTexts = async (req, res) => {
  try {
    const teachingTexts = await TeachingText.find();
@@ -26,7 +26,7 @@ const getAllTeachingTexts = async (req, res) => {
 };
 
 
-// Get a single video upload by ID
+// Get a single teaching text by ID
 const getTeachingTextById = async (req, res) => {
  try {
    const teachingText = await TeachingText.findById(req.params.id);
@@ -40,7 +40,7 @@ const getTeachingTextById = async (req, res) => {
 };
 
 
-// Update a video upload by ID
+// Update a teaching text by ID
 const updateTeachingTextById = async (req, res) => {
  try {
    const { title, description, categories, userId } = req.body;
@@ -59,7 +59,7 @@ const updateTeachingTextById = async (req, res) => {
 };
 
 
-// Delete a video upload by ID
+// Delete a teaching text by ID
 const deleteTeachingTextById = async (req, res) => {
  try {
    const deletedTeachingText = await TeachingText.findByIdAndDelete(
