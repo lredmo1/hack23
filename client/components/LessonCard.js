@@ -1,8 +1,7 @@
 import React from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
-import CreateLessonForm from './CreateLessonForm';
 
-function LessonPost({title, desc, id}) {
+function LessonCard({title, desc, id}) {
 
     // const[lesson, setLesson] 
 
@@ -29,9 +28,8 @@ function LessonPost({title, desc, id}) {
                 </CardContent>
             </CardActionArea>
         </Card>
-        {/* <CreateLessonForm></CreateLessonForm> */}
         </>
     )
 }
 
-export default LessonPost
+export default LessonCard
