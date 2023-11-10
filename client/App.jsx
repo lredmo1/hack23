@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/threads" element={<DiscussionThreads />} />
 
         <Route path="/teaching" element={<TeachingContainer />} />
-        <Route path="/uploadContent" element={<UploadContent />} />
+        <Route path="/teach" element={<UploadContent />} />
 
         <Route path="/learn" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
