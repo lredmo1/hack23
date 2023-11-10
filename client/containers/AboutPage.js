@@ -87,7 +87,7 @@ function AboutPage() {
         <p class="title">If you are here to share you thoughts</p>
         <p>Share on the comments and exchange thoughts with others </p>
         <p>
-		<Link to="/uploadContent">
+		<Link to="/singlelesson">
 
 		<button class="button">Start sharing</button>
 		</Link>
