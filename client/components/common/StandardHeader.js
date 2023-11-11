@@ -13,7 +13,14 @@ const StandardHeader = ({ label, children }) => {
       <Typography
         variant="h4"
         component="h2"
-        sx={{ mb: 4, textAlign: "center", mx: "auto" }}
+        sx={{
+          mb: 4,
+          textAlign: "center",
+          mx: "auto",
+          color: "black",
+          fontSize: "24px", // Add font size
+          fontWeight: "bold", // Add bold font weight
+        }}
       >
         {label}
       </Typography>
