@@ -261,7 +261,7 @@ function OneTeachingText() {
         </p>
 
       </div>
-      <DiscussionThreads lessonId={"654d55290487eb9c970237ae"} />
+      <DiscussionThreads lessonId={"654ec36b97ebb71e5926d1ed"} />
       </div>
     </>
   )
