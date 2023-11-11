@@ -98,7 +98,7 @@ function DiscussionThreads( {lessonId} ) {
 	}, [lessonId]);
 // 
 	// const threadCards = threads.map((thread) => <div><p>{thread.content}</p></div>)
-	const threadCards = threads.map((thread) => <ThreadCard thread={thread} key={thread.id} setThreads={setThreads} lessonId={lessonId}/>)
+	const threadCards = threads.map((thread, index) => <ThreadCard thread={thread} key={index} setThreads={setThreads} lessonId={lessonId}/>)
 
 	return (
 		<div className="thread-container">

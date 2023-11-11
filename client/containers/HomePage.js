@@ -13,7 +13,7 @@ function HomePage() {
 			resp.json())
 			.then((res) => {
         const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
-				setLessons(list);
+				setLessons(res);
 			});
 
 	}, []);
@@ -26,7 +26,6 @@ function HomePage() {
         alignItems="stretch"
       >
         {lessons.map((lesson, index) => {
-          console.log(lesson);
           return(
             <Grid item key={index} xs={3}>
               <LessonCard title={lesson.title} desc={lesson.description} id={lesson._id}></LessonCard>
