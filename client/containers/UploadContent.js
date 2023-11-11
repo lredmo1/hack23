@@ -61,6 +61,7 @@ function UploadContent() {
         alignItems: "center",
         justifyContent: "center",
       }}
+      className="videouploader"
     >
       <StandardHeader
         label="Upload a Video with Caption"
