@@ -21,6 +21,7 @@ function TeachingContainer() {
 
 	}, [id]);
 
+	console.log(id)
 	return (
 		<div>
 			<VideoPost
