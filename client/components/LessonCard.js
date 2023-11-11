@@ -11,14 +11,15 @@ function LessonCard({title, desc, id}) {
     return(
         <>
         <Card sx={{ maxWidth: 345 }} className="lessonCard">
-            <CardActionArea onClick={handleClickLesson}>
+            <CardActionArea onClick={handleClickLesson} className="card">
                 {/* <CardMedia
                     component="img"
                     alt="piano"
                     height="140"
                     image="https://upload.wikimedia.org/wikipedia/commons/5/50/Piano.svg"
                 /> */}
-                <CardContent>
+                <CardContent className="container">
+                
                     <Typography gutterBottom variant="h5" component="div">
                         {title}
                     </Typography>
