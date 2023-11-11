@@ -99,15 +99,15 @@ app.post("/thread", async (req, res) => {
       teachingText = await TeachingText.findById(teachingtext);
 
       if (!teachingText) {
-        return res.status(404).json({ message: "User not found" });
+        return res.status(404).json({ message: "Teaching text not found" });
       }
     } else {
       // If no lesson ID is provided, use a default lesson ID
-      const defaultLessonId = "654d55290487eb9c970237ae"; // Replace with your default lesson ID
+      const defaultLessonId = "654ec36b97ebb71e5926d1ed"; // Replace with your default lesson ID
       teachingText = await TeachingText.findById(defaultLessonId);
 
-      if (!user) {
-        return res.status(404).json({ message: "Default user not found" });
+      if (!teachingText) {
+        return res.status(404).json({ message: "Default teaching text not found" });
       }
     }
 
