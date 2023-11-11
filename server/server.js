@@ -110,7 +110,6 @@ app.post("/thread", async (req, res) => {
       }
     }
 
-	console.log('******************teachingText************', teachingText)
     const newThread = new Thread({
       content,
       user: user._id, // Associate the thread with the user
