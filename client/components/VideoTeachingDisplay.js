@@ -7,8 +7,11 @@ import {
   Typography,
 } from "@mui/material";
 
-
 function VideoTeachingDisplay({ caption,video,id }) {
+
+	if (!video) {
+		return null
+	}
 
   return (
     <>
@@ -29,7 +32,7 @@ function VideoTeachingDisplay({ caption,video,id }) {
           </CardMedia>
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-			{caption}
+				{caption}
             </Typography>
           </CardContent>
       </Card>
