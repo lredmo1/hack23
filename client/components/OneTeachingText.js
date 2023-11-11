@@ -4,6 +4,7 @@ import DiscussionThreads from '../containers/DiscussionThreads'
 function OneTeachingText() {
   return (
     <>
+    <div className="oneLearn">
       <div>
         <h2>
           <strong>
@@ -261,6 +262,7 @@ function OneTeachingText() {
 
       </div>
       <DiscussionThreads lessonId={"654d55290487eb9c970237ae"} />
+      </div>
     </>
   )
 }

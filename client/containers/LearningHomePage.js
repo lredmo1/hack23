@@ -14,7 +14,7 @@ function HomePage() {
 			resp.json())
 			.then((res) => {
         const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
-				setLessons(res);
+				setLessons(list);
 			});
       fetch("http://localhost:3000/api/video-uploads/")
         .then((resp) => resp.json())
@@ -27,7 +27,7 @@ function HomePage() {
   console.log(videos);
   return (
     <>
-
+    <div className="learningPage">
       <div>
         <h1>Available Lessons</h1>
         <Grid
@@ -38,6 +38,7 @@ function HomePage() {
           alignItems="stretch"
         >
           {lessons.map((lesson, index) => {
+            console.log(lesson);
             return (
               <Grid item key={index} xs={3}>
                  <Link to={`/singlelesson`}>
@@ -52,7 +53,7 @@ function HomePage() {
           })}
         </Grid>
       </div>
-      <div className='videos'>
+      <div>
         <h1>Available Videos</h1>
         <Grid
           rowSpacing={4}
@@ -75,7 +76,7 @@ function HomePage() {
           })}
         </Grid>
       </div>
-
+    </div>
     </>
   );
 }

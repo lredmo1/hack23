@@ -8,8 +8,19 @@ import Navbar from "../components/Navbar";
 
 const Home = () => {
   const [intro, updateIntro] = useState("insert text here");
+  const imageUrlDo = 'https://res.cloudinary.com/dsioshcio/image/upload/v1699655860/DoOne_gwxxxv.png';
   const imageUrlLearn = 'https://res.cloudinary.com/dsioshcio/image/upload/v1699655860/SeeOne_ma2ksn.png';
   const imageUrlTeach = 'https://res.cloudinary.com/dsioshcio/image/upload/v1699655860/TeachOne_zs48ff.png';
+
+  const buttonDoStyle = {
+    fontFamily: "Montserrat, sans-serif",
+    fontWeight: "bold",
+    fontSize: "2rem",
+    backgroundColor: "#86953e",
+    width: "300px",
+    height: "300px",
+    marginTop: "20vh", // Add margin bottom for space
+  };
 
   const buttonLearnStyle = {
     fontFamily: "Montserrat, sans-serif",
@@ -36,6 +47,11 @@ const Home = () => {
       <div>
         {/* Your other content */}
         <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px" }}>
+        <Link to="/learn">
+            <Button variant="primary" style={buttonDoStyle}>
+              <img src={imageUrlDo} alt="learn logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
+            </Button>
+          </Link>
           {/* Button with color EBCD54 */}
           <Link to="/learn">
             <Button variant="primary" style={buttonLearnStyle}>
