@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import VideoPost from '../components/VideoPost';
 import DiscussionThreads from './DiscussionThreads';
+import "../stylesheets/TeachingContainer.scss";
 
 function TeachingContainer() {
 
@@ -23,12 +24,16 @@ function TeachingContainer() {
 
 	console.log(id)
 	return (
-		<div>
-			<VideoPost
-				caption={lesson.caption}
-				video={lesson.video}
-				id={lesson._id} />
-			<DiscussionThreads lessonId={id}/>
+		<div className="container">
+			<div className="video-display">
+				<VideoPost
+					caption={lesson.caption}
+					video={lesson.video}
+					id={lesson._id} />
+			</div>
+			<div>
+				<DiscussionThreads lessonId={id}/>
+			</div>
 		</div>
 	);
 
