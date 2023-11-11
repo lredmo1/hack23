@@ -6,19 +6,16 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import CreateLessonForm from "./CreateLessonForm";
-import { Link } from 'react-router-dom';
 
-function VideoPost({ caption,video,id }) {
-  // const[lesson, setLesson]
+function VideoTeachingDisplay({ caption,video,id }) {
 
-  const handleClickLesson = (evt) => {
-    console.log("go to lesson: " + id);
-  };
+	if (!video) {
+		return null
+	}
+
   return (
     <>
-      <Card sx={{ maxWidth: 345 }} className="lessonCard">
-        <CardActionArea onClick={handleClickLesson}>
+      <Card sx={{ maxWidth: 1000 }} className="lessonCard">
           <CardMedia
             component="div" // Use a div to create a custom container
             alt="piano"
@@ -35,14 +32,12 @@ function VideoPost({ caption,video,id }) {
           </CardMedia>
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-			<Link to={`/learn/${id}`}>{caption}</Link>
+				{caption}
             </Typography>
           </CardContent>
-        </CardActionArea>
       </Card>
-      {/* <CreateLessonForm></CreateLessonForm> */}
     </>
   );
 }
 
-export default VideoPost;
+export default VideoTeachingDisplay;

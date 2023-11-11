@@ -15,6 +15,7 @@ var cors = require('cors')
 // MODELS IMPORT
 const User = require("./models/User.model");
 const TeachingText = require("./models/TeachingText.model");
+const VideoUpload = require("./models/TeachingVideo.model");
 const Thread = require("./models/Thread.model");
 const Reply = require("./models/Reply.model");
 
@@ -95,12 +96,10 @@ app.post("/thread", async (req, res) => {
 	let teachingText;
 
     if (teachingtext) {
-      // If lesson ID is provided in the request, use it
-      teachingText = await TeachingText.findById(teachingtext);
-
-      if (!teachingText) {
-        return res.status(404).json({ message: "Teaching text not found" });
-      }
+		// If lesson ID is provided in the request, use it
+		teachingText = await TeachingText.findById(teachingtext);
+	} else if (teachingtext && !teachingText) {
+		teachingText = await VideoUpload.findById(teachingtext);
     } else {
       // If no lesson ID is provided, use a default lesson ID
       const defaultLessonId = "654ec36b97ebb71e5926d1ed"; // Replace with your default lesson ID
