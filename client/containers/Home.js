@@ -47,20 +47,18 @@ const Home = () => {
       <div>
         {/* Your other content */}
         <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px" }}>
-        <Link to="/learn">
-            <Button variant="primary" style={buttonDoStyle}>
-              <img src={imageUrlDo} alt="learn logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
-            </Button>
-          </Link>
           {/* Button with color EBCD54 */}
           <Link to="/learn">
             <Button variant="primary" style={buttonLearnStyle}>
               <img src={imageUrlLearn} alt="learn logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
             </Button>
           </Link>
-          {/* MAKE A LINK TO GINA 'S WORK ON CLOUDINARY */}
+          <Link to="/learn">
+            <Button variant="primary" style={buttonDoStyle}>
+              <img src={imageUrlDo} alt="learn logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
+            </Button>
+          </Link>
           <Link to="/teach">
-
             <Button variant="primary" style={buttonTeachStyle}>
               <img src={imageUrlTeach} alt="teach logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
             </Button>

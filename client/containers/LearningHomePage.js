@@ -13,8 +13,8 @@ function HomePage() {
 			.then((resp) =>
 			resp.json())
 			.then((res) => {
-        const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
-				setLessons(list);
+        // const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
+				setLessons(res);
 			});
       fetch("http://localhost:3000/api/video-uploads/")
         .then((resp) => resp.json())
