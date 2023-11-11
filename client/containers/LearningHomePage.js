@@ -52,7 +52,7 @@ function HomePage() {
           })}
         </Grid>
       </div>
-      <div>
+      <div className='videos'>
         <h1>Available Videos</h1>
         <Grid
           rowSpacing={4}
