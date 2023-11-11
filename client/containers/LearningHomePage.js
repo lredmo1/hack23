@@ -41,11 +41,13 @@ function HomePage() {
             console.log(lesson);
             return (
               <Grid item key={index} xs={3}>
+                 <Link to={`/singlelesson`}>
                 <LessonCard
                   title={lesson.title}
                   desc={lesson.description}
                   id={lesson._id}
                 ></LessonCard>
+              </Link>
               </Grid>
             );
           })}
