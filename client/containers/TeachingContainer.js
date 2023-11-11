@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import VideoPost from '../components/VideoPost';
+import VideoTeachingDisplay from '../components/VideoTeachingDisplay';
 import DiscussionThreads from './DiscussionThreads';
 import "../stylesheets/TeachingContainer.scss";
 
@@ -12,7 +12,7 @@ function TeachingContainer() {
 	useEffect(() => {
 
 		// Fetch threads
-		fetch(`http://localhost:3000/api/teaching-videos/${id}`)
+		fetch(`http://localhost:3000/api/video-uploads/${id}`)
 			.then((resp) =>
 			resp.json())
 			.then((value) => {
@@ -22,14 +22,13 @@ function TeachingContainer() {
 
 	}, [id]);
 
-	console.log(id)
 	return (
 		<div className="container">
 			<div className="video-display">
-				<VideoPost
+				<VideoTeachingDisplay
 					caption={lesson.caption}
 					video={lesson.video}
-					id={lesson._id} />
+					id={lesson._id}></VideoTeachingDisplay>
 			</div>
 			<div>
 				<DiscussionThreads lessonId={id}/>

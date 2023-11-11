@@ -1,28 +1,40 @@
-import React from 'react';
-import { Grid, Card, CardContent, Typography } from '@mui/material';
-// Import your comments component
-// import CommentsSection from './CommentsSection';
+import React from "react";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 
-function VideoTeachingDisplay({ title, description, video }) {
+
+function VideoTeachingDisplay({ caption,video,id }) {
+
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={8}> {/* Adjust size as needed */}
-        <Card raised sx={{ width: '100%' }}>
+    <>
+      <Card sx={{ maxWidth: 1000 }} className="lessonCard">
+          <CardMedia
+            component="div" // Use a div to create a custom container
+            alt="piano"
+            height="140"
+            style={{ position: "relative" }}
+          >
+            <video
+              controls
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            >
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </CardMedia>
           <CardContent>
-            <Typography variant="h5" component="div">
-              {title}
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              {description}
+            <Typography variant="body2" color="text.secondary">
+			{caption}
             </Typography>
           </CardContent>
-        </Card>
-      </Grid>
-       {/* <Grid item xs={12} md={4}> 
-            <CommentsSection /> dummy Comments Section component
-        </Grid> */}
-    </Grid>
+      </Card>
+    </>
   );
 }
 
-export default TextTeachingDisplay;
+export default VideoTeachingDisplay;
