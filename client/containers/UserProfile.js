@@ -5,9 +5,9 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 
-import StandardHeader from "../components/common/StandardHeader";
-import UserAvatar from "../components/common/UserAvatar";
-import ProfileInput from "../components/common/ProfileInput";
+import StandardHeader from "../components/StandardHeader";
+import UserAvatar from "../components/UserAvatar";
+import ProfileInput from "../components/ProfileInput";
 
 const UserProfile = () => {
   const [formData, setFormData] = useState({

@@ -1,5 +1,5 @@
 import React from "react";
-import "./NavBar.css";
+import "../stylesheets/NavBar.scss";
 import { Link, Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 

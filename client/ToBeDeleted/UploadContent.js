@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import StandardHeader from "../components/common/StandardHeader";
+import StandardHeader from "../components/StandardHeader";
 import {
   Button,
   CircularProgress,

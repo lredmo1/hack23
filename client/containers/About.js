@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import React from 'react';
 import { Link, Outlet } from "react-router-dom";
 
-function AboutPage() {
+function About() {
 
 	return (
 		<>
@@ -136,4 +136,4 @@ function AboutPage() {
 
 };
 
-export default AboutPage;
+export default About;

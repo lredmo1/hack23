@@ -4,7 +4,7 @@ import LessonCard from '../components/LessonCard';
 import { Container, Grid } from '@mui/material';
 import VideoPost from '../components/VideoPost';
 
-function HomePage() {
+function AllLessons() {
 	const[lessons, setLessons] = useState([]); 
 	const [videos, setVideos] = useState([]); 
   useEffect(() => {
@@ -27,7 +27,7 @@ function HomePage() {
   console.log(videos);
   return (
     <>
-    <div className="learningPage">
+    <div className="all-lessons">
       <div>
         <h1>Available Lessons</h1>
         <Grid
@@ -81,4 +81,4 @@ function HomePage() {
   );
 }
 
-export default HomePage
+export default AllLessons
