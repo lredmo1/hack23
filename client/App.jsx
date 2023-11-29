@@ -6,7 +6,7 @@ import UserProfile from "./containers/UserProfile";
 import DiscussionThreads from "./containers/DiscussionThreads";
 import AllLessons from "./containers/AllLessons";
 import Lesson from "./containers/Lesson";
-import UploadContent from "./ToBeDeleted/UploadContent";
+import UploadContent from "./containers/UploadContent";
 
 import About from "./containers/About";
 import NavBar from "./components/Navbar";
