@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import DiscussionThreads from "./DiscussionThreads";
-import AllLessons from "./AllLessons";
-import Navbar from "../components/Navbar";
+
 
 const Home = () => {
   const [intro, updateIntro] = useState("insert text here");
