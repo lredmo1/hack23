@@ -1,29 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import LessonCard from '../components/LessonCard';
+import LessonText from '../components/LessonText';
 import { Container, Grid } from '@mui/material';
-import VideoPost from '../components/VideoPost';
+import LessonVideo from '../components/LessonVideo';
 
 function AllLessons() {
 	const[lessons, setLessons] = useState([]); 
 	const [videos, setVideos] = useState([]); 
-  useEffect(() => {
-		// Fetch All lessons from DB
-		fetch("http://localhost:3000/api/teaching-texts/")
-			.then((resp) =>
-			resp.json())
-			.then((res) => {
-        // const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
-				setLessons(res);
-			});
-      fetch("http://localhost:3000/api/video-uploads/")
-        .then((resp) => resp.json())
-        .then((res) => {
-          // not a lot of data to read right now so duplicating
-          setVideos(res);
-        });
 
-	}, []);
+//   useEffect(() => {
+// 		// Fetch All lessons from DB
+// 		fetch("http://localhost:3000/api/teaching-texts/")
+// 			.then((resp) =>
+// 			resp.json())
+// 			.then((res) => {
+//         // const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
+// 				setLessons(res);
+// 			});
+//       fetch("http://localhost:3000/api/video-uploads/")
+//         .then((resp) => resp.json())
+//         .then((res) => {
+//           // not a lot of data to read right now so duplicating
+//           setVideos(res);
+//         });
+
+// 	}, []);
+
+	const fakeLesson = {
+		title: 'Test Lesson',
+        description: 'This is a lesson description',
+        _id: 123
+	}
+
   console.log(videos);
   return (
     <>
@@ -37,20 +45,22 @@ function AllLessons() {
           direction="row"
           alignItems="stretch"
         >
-          {lessons.map((lesson, index) => {
+          {/* {lessons.map((lesson, index) => {
             console.log(lesson);
-            return (
-              <Grid item key={index} xs={3}>
+            return ( */}
+              <Grid item 
+			//   key={index} 
+			  xs={3}>
                  <Link to={`/singlelesson`}>
-                <LessonCard
-                  title={lesson.title}
-                  desc={lesson.description}
-                  id={lesson._id}
-                ></LessonCard>
+                <LessonText
+                  title={fakeLesson.title}
+                  desc={fakeLesson.description}
+                  id={fakeLesson._id}
+                ></LessonText>
               </Link>
               </Grid>
-            );
-          })}
+            {/* ); */}
+          {/* })} */}
         </Grid>
       </div>
       <div>
@@ -66,11 +76,11 @@ function AllLessons() {
             
             return (
               <Grid item key={index} xs={3}>
-                <VideoPost
+                <LessonVideo
                   caption={singleVideo.caption}
                   video={singleVideo.video}
                   id={singleVideo._id}
-                ></VideoPost>
+                ></LessonVideo>
               </Grid>
             );
           })}
