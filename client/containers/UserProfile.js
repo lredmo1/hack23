@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 
-import StandardHeader from "../components/StandardHeader";
 import UserAvatar from "../components/UserAvatar";
 import ProfileInput from "../components/ProfileInput";
 
@@ -29,7 +28,7 @@ const UserProfile = () => {
       elevation={3}
       style={{ padding: 16, marginTop: 24, backgroundColor: "white" }}
     >
-      <StandardHeader label={"Profile"} />
+      <h1>Profile</h1>
       <Grid
         container
         spacing={3}
