@@ -1,0 +1,25 @@
+.all-lessons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+
+}
+
+.lesson-cards {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 10px;
+	width: 100%;
+}
+
+.lesson-text {
+	margin: 10px;
+}
+
+.lesson-video {
+	margin: 10px;
+}
