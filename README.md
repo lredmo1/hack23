@@ -1,24 +1,7 @@
-# hack23
-
-After cloning repo, run npm install in terminal.
-
-For the database, replace the mongoAtlasUri variable by the URI provided in Slack.
-
-Run 'npm run dev' to view
-project in dev mode.
-
-# Pull Request Commands
-
-1. Create your own branch. Make commits. When ready to push,
-2. git checkout dev
-3. git pull origin dev
-4. git checkout [yourbranch]
-5. git merge dev
-6. git push origin [yourbranch]
-7. Create pull request from [yourbranch] to dev
-8. Let a reviewer know you need PR approved.
+This website is under construction. It was created during the 2023 GDI Hackathon by a team of eight members. I am currently refactoring it to clean up the code code, use more consistently styled and readable code, rebuilding the backend, and finishing features that did not make it into the MVP. Please check back to see the transformation!
 
 ## How It Works
+Sodoto is an edtech app based on the principle that a student has only mastered content when they can teach it. It acts as a platform for students to teach others through videos lesson or blog-style text lessons. In turn, it serves as a free learning resource where other students can find lessons on topics they care about. They can interact with other students or ask questions about posted content through the discussion thread feature.
 
 ### If you are here to learn…
 
