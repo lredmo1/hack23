@@ -70,7 +70,7 @@ function About() {
 					</li>
 				</ul>
         <p>
-			<Link to="/teach">
+			<Link to="/create-video-lesson">
 			<button className="button">Start teaching</button>
 			</Link>
 		

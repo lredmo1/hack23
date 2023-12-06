@@ -55,7 +55,7 @@ const Home = () => {
               <img src={imageUrlDo} alt="learn logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
             </Button>
           </Link>
-          <Link to="/teach">
+          <Link to="/create-video-lesson">
             <Button variant="primary" style={buttonTeachStyle}>
               <img src={imageUrlTeach} alt="teach logo" style={{ maxWidth: "100%", margin: "10px 0" }} />
             </Button>
