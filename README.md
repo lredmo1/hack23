@@ -10,3 +10,5 @@ Explore a world of knowledge by searching for your favorite topics on the home p
 ### If you are here to reinforce your own learning by teaching it to others...
 
 Take an active role in sharing your knowledge by clicking on "Create New Teaching Demonstration" from the home page. Easily add your content by uploading or linking a video or by crafting a blog-style text description. Be attentive to the community—anticipate questions and feedback in the comments section. Elevate the learning experience for everyone by providing thoughtful responses and fostering ongoing discussion.
+
+![image](https://github.com/lredmo1/hack23/assets/89757407/71a4724e-01de-434f-923f-deda480fbc02)
