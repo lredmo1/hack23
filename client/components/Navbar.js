@@ -13,7 +13,7 @@ const NavBar = () => {
 
 			<div className="navbar-logo">
 
-				{/* TODO add logo */}
+				{/* TODO add logo with better resolution */}
 				{/* <Link to="/">
 					<img
 					className="navbar-logo"

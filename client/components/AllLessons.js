@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import LessonText from '../components/LessonText';
+import LessonText from './LessonText';
 import { Container, Grid } from '@mui/material';
-import LessonVideo from '../components/LessonVideo';
+import LessonVideo from './LessonVideo';
 
 function AllLessons() {
 	const[lessons, setLessons] = useState([]); 
