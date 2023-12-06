@@ -1,35 +1,47 @@
 import React from 'react';
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, CardBody, CardImg, CardTitle, CardSubtitle } from 'reactstrap';
 
 function LessonText({title, desc, id}) {
 
-    // const[lesson, setLesson] 
-
+	// TODO update to go to text lesson display
     const handleClickLesson = (evt) => {
         console.log('go to lesson: '+ id);
     }
     return(
+	
         <>
-        <Card sx={{ maxWidth: 345 }} className="lessonText">
-            <CardActionArea onClick={handleClickLesson}>
-                {/* <CardMedia
-                    component="img"
+
+        <Card 
+			className="lesson-text" 
+			onClick={handleClickLesson}
+			style={{
+				width: '12rem'
+			  }}>
+
+			<CardBody>
+
+                <CardImg
                     alt="piano"
                     height="140"
-                    image="https://upload.wikimedia.org/wikipedia/commons/5/50/Piano.svg"
-                /> */}
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                       {desc}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/50/Piano.svg" />
+
+				<CardTitle>
+					{title}
+				</CardTitle>
+				<CardSubtitle 
+					className="mb-2 text-muted"
+					tag="h6">
+					{desc}
+				</CardSubtitle>
+
+             </CardBody>
+
         </Card>
+
         </>
+
     )
+
 }
 
 export default LessonText

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import LessonText from './LessonText';
 import LessonVideo from './LessonVideo';
 
+import "../stylesheets/AllLessons.scss";
+
 function AllLessons() {
 	
 	const[textLessons, setTextLessons] = useState([]); 
@@ -60,29 +62,27 @@ function AllLessons() {
 
 			<div className="all-lessons">
 
-				<div>
+			<h1>Text Lessons</h1>
 
-					<h1>Text Lessons</h1>
+				<div className="lesson-cards">
 
 					{fakeTextLessons.map((textLesson, index) => {
 						return (
 						// TODO update to link to display of text lessons
-						<Link to={`/singlelesson`} key={index}>
 							<LessonText
 								key={index}
 								title={textLesson.title}
 								desc={textLesson.description}
 								id={textLesson._id}>
 							</LessonText>
-						</Link>
 						);
 					})}
 
 				</div>
 
-				<div>
+			<h1>Video Lessons</h1>
 
-					<h1>Video Lessons</h1>
+				<div className="lesson-cards">
 					
 					{fakeVideoLessons.map((videoLesson, index) => {
 						return (

@@ -17,7 +17,7 @@ function LessonVideo({ caption,video,id }) {
   };
   return (
     <>
-      <Card sx={{ maxWidth: 345 }} className="LessonText">
+      <Card sx={{ maxWidth: 345 }} className="lesson-video">
         <CardActionArea onClick={handleClickLesson}>
           <CardMedia
             component="div" // Use a div to create a custom container

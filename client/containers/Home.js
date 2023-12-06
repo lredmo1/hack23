@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import { Button } from 'reactstrap';
 
 import AllLessons from "../components/AllLessons";
 import logo_no_border from "../public/images/logo_no_border.png"
