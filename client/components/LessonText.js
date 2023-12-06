@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, CardBody, CardImg, CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-function LessonText({title, desc, id}) {
+function LessonText({ title, desc, id }) {
 
 	// TODO update to go to text lesson display
     const handleClickLesson = (evt) => {
@@ -9,36 +10,35 @@ function LessonText({title, desc, id}) {
     }
     return(
 	
-        <>
+		<>
 
-        <Card 
-			className="lesson-text" 
-			onClick={handleClickLesson}
-			style={{
-				width: '12rem'
-			  }}>
+			<Card sx={{ maxWidth: 345 }} className="lesson-text">
 
-			<CardBody>
+				<CardActionArea onClick={handleClickLesson}>
 
-                <CardImg
-                    alt="piano"
-                    height="140"
-                    src="https://upload.wikimedia.org/wikipedia/commons/5/50/Piano.svg" />
+					<CardMedia
+						component="img"
+						alt="piano"
+						height="140"
+						image="https://upload.wikimedia.org/wikipedia/commons/5/50/Piano.svg" />
 
-				<CardTitle>
-					{title}
-				</CardTitle>
-				<CardSubtitle 
-					className="mb-2 text-muted"
-					tag="h6">
-					{desc}
-				</CardSubtitle>
+					<CardContent>
 
-             </CardBody>
+						<Typography gutterBottom variant="h5" component="div">
+							{title}
+						</Typography>
 
-        </Card>
+						<Typography variant="body2" color="text.secondary">
+							<Link to={`/text-lesson/${id}`}>{desc}</Link>
+						</Typography>
 
-        </>
+					</CardContent>
+
+				</CardActionArea>
+
+			</Card>
+
+    	</>
 
     )
 
