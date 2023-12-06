@@ -11,7 +11,7 @@ const Home = () => {
 
       <div className="home">
 
-		<img src={logo_no_border} className="logo" />
+		<img alt="sodoto-logo" src={logo_no_border} className="logo" />
 
 		<div>
 
