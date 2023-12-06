@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 
 import LessonText from './LessonText';
 import LessonVideo from './LessonVideo';
@@ -86,6 +85,7 @@ function AllLessons() {
 					
 					{fakeVideoLessons.map((videoLesson, index) => {
 						return (
+						// TODO update to link to display of video lessons
 							<LessonVideo
 								key={index}
 								caption={videoLesson.caption}
