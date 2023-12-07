@@ -1,7 +1,7 @@
 _This website is under construction. It was created during the 2023 GDI Hackathon by a team of eight members. I am currently refactoring it to clean up the code, use more consistently styled and readable code, improving accessibility, rebuilding the backend, and finishing features that did not make it into the MVP. Please check back to see the transformation!_
 
 ## How It Works
-Sodoto is an edtech app based on the principle that a student has only mastered content when they can teach it. It acts as a platform for students to teach others through videos lesson or blog-style text lessons. In turn, it serves as a free learning resource where other students can find lessons on topics they care about. They can interact with other students or ask questions about posted content through the discussion thread feature.
+Sodoto is an edtech app based on the principle that a student has only mastered content when they can teach it. It acts as a platform for students to teach others through video lesson or blog-style text lessons. In turn, it serves as a free learning resource where other students can find lessons on topics they care about. They can interact with other students or ask questions about posted content through the discussion thread feature.
 
 ### If you are here to learn…
 
