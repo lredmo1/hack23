@@ -50,7 +50,6 @@ function CreateVideo() {
 
     <div className="upload-content" >
 
-	console.log('test')
 		<h1>Upload a Video with Caption</h1>
       
 		<form onSubmit={handleSubmit}>
