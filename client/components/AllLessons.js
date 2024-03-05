@@ -11,23 +11,23 @@ function AllLessons() {
 	const [videoLessons, setVideoLessons] = useState([]); 
 
 // 	TODO update with new back end
-//  useEffect(() => {
-// 		// Fetch All lessons from DB
-// 		fetch("http://localhost:3000/api/teaching-texts/")
-// 			.then((resp) =>
-// 			resp.json())
-// 			.then((res) => {
-//         // const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
-// 				setTextLessons(res);
-// 			});
-//       fetch("http://localhost:3000/api/video-uploads/")
-//         .then((resp) => resp.json())
-//         .then((res) => {
-//           // not a lot of data to read right now so duplicating
-//           setVideoLessons(res);
-//         });
+ useEffect(() => {
+		// Fetch All lessons from DB
+		// fetch("http://localhost:3000/api/teaching-texts/")
+		// 	.then((resp) =>
+		// 	resp.json())
+		// 	.then((res) => {
+        // const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
+			// 	setTextLessons(res);
+			// });
+      fetch("http://localhost:3000/video_uploads/")
+        .then((resp) => resp.json())
+        .then((resp) => {
+		  console.log('these are the videos', resp)
+          setVideoLessons(resp);
+        });
 
-// 	}, []);
+	}, []);
 
 	const fakeTextLessons = [
 		{
@@ -83,7 +83,7 @@ function AllLessons() {
 
 				<div className="lesson-cards">
 					
-					{fakeVideoLessons.map((videoLesson, index) => {
+					{videoLessons.map((videoLesson, index) => {
 						return (
 						// TODO update to link to display of video lessons
 							<LessonVideo
