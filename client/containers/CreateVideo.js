@@ -47,6 +47,7 @@ function CreateVideo() {
   };
 
   return (
+
     <div className="upload-content" >
 
 		<h1>Upload a Video with Caption</h1>

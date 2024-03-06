@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 import LessonText from './LessonText';
 import LessonVideo from './LessonVideo';
@@ -11,23 +12,22 @@ function AllLessons() {
 	const [videoLessons, setVideoLessons] = useState([]); 
 
 // 	TODO update with new back end
-//  useEffect(() => {
-// 		// Fetch All lessons from DB
-// 		fetch("http://localhost:3000/api/teaching-texts/")
-// 			.then((resp) =>
-// 			resp.json())
-// 			.then((res) => {
-//         // const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
-// 				setTextLessons(res);
-// 			});
-//       fetch("http://localhost:3000/api/video-uploads/")
-//         .then((resp) => resp.json())
-//         .then((res) => {
-//           // not a lot of data to read right now so duplicating
-//           setVideoLessons(res);
-//         });
+ useEffect(() => {
+		// Fetch All lessons from DB
+		// fetch("http://localhost:3000/api/teaching-texts/")
+		// 	.then((resp) =>
+		// 	resp.json())
+		// 	.then((res) => {
+        // const list = res.concat(res).concat(res); // not a lot of data to read right now so duplicating
+			// 	setTextLessons(res);
+			// });
+      fetch("http://localhost:3000/video_uploads/")
+        .then((resp) => resp.json())
+        .then((resp) => {
+          setVideoLessons(resp);
+        });
 
-// 	}, []);
+	}, []);
 
 	const fakeTextLessons = [
 		{
@@ -42,18 +42,18 @@ function AllLessons() {
 		}
 	]
 
-	const fakeVideoLessons = [
-		{
-			caption: 'Video Lesson 1',
-			video: 'This is a lesson description',
-			id: 123
-		},
-		{
-			caption: 'Video Lesson 1',
-			video: 'This is a lesson description',
-			id: 456
-		}
-	]
+	// const fakeVideoLessons = [
+	// 	{
+	// 		caption: 'Video Lesson 1',
+	// 		video: 'This is a lesson description',
+	// 		id: 123
+	// 	},
+	// 	{
+	// 		caption: 'Video Lesson 1',
+	// 		video: 'This is a lesson description',
+	// 		id: 456
+	// 	}
+	// ]
 
 	return (
 
@@ -68,12 +68,15 @@ function AllLessons() {
 					{fakeTextLessons.map((textLesson, index) => {
 						return (
 						// TODO update to link to display of text lessons
+						<>
+							<Link to={`/singlelesson`}></Link>
 							<LessonText
 								key={index}
 								title={textLesson.title}
 								desc={textLesson.description}
 								id={textLesson._id}>
 							</LessonText>
+						</>
 						);
 					})}
 
@@ -83,14 +86,14 @@ function AllLessons() {
 
 				<div className="lesson-cards">
 					
-					{fakeVideoLessons.map((videoLesson, index) => {
+					{videoLessons.map((videoLesson, index) => {
 						return (
 						// TODO update to link to display of video lessons
 							<LessonVideo
 								key={index}
 								caption={videoLesson.caption}
 								video={videoLesson.video}
-								id={videoLesson._id}>
+								id={videoLesson.id}>
 							</LessonVideo>
 						);
 					})}
