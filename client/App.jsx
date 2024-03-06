@@ -9,6 +9,8 @@ import About from "./containers/About";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import OneTeachingText from "./components/OneTeachingText";
+import Lesson from "./containers/Lesson";
+import LessonVideo from "./components/LessonVideo";
 
 import "./stylesheets/App.scss";
 
@@ -31,6 +33,8 @@ const App = () => {
 				{/* TODO view a written lesson text-lesson/:id */}
 				<Route path="/singlelesson" element={<OneTeachingText />} />
 				{/* TODO view a video lesson video-lesson/:id */}
+				<Route path="/video-lesson/:id" element={<Lesson />} />
+				{/* <Route path="/video-card" element={<LessonVideo />} /> */}
 
 			</Routes>
 

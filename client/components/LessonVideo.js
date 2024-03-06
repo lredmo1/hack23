@@ -1,12 +1,14 @@
 import React from "react";
 import { Card, CardActionArea, CardContent, CardMedia, Typography,} from "@mui/material";
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function LessonVideo({ caption, video, id }) {
 
+	const navigate = useNavigate();
+
 // TODO update to go to vide lesson display
   const handleClickLesson = (evt) => {
-    console.log("go to lesson: " + id);
+    navigate(`/video-lesson/${id}`);
   };
 
 	return (
@@ -34,7 +36,9 @@ function LessonVideo({ caption, video, id }) {
 					<CardContent>
 
 						<Typography variant="body2" color="text.secondary">
-							<Link to={`/video-lesson/${id}`}>{caption}</Link>
+							{/* <Link to={`/video-lesson/${id}`}> */}
+								{caption}
+								{/* </Link> */}
 						</Typography>
 
 					</CardContent>

@@ -12,15 +12,14 @@ function Lesson() {
 	useEffect(() => {
 
 		// Fetch threads
-		fetch(`http://localhost:3000/api/video-uploads/${id}`)
-			.then((resp) =>
-			resp.json())
-			.then((value) => {
-				console.log(value);
-				setLesson(value);
+		fetch(`http://localhost:3000/video_uploads/${id}`)
+			.then((resp) => resp.json())
+			.then((resp) => {
+			console.log('aloha', resp)
+			setLesson(resp);
 			});
 
-	}, [id]);
+	}, []);
 
 	return (
 		<div className="container">
@@ -28,7 +27,7 @@ function Lesson() {
 				<VideoTeachingDisplay
 					caption={lesson.caption}
 					video={lesson.video}
-					id={lesson._id}></VideoTeachingDisplay>
+					id={lesson.id}></VideoTeachingDisplay>
 			</div>
 			<div>
 				<DiscussionThreads lessonId={id}/>
