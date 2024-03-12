@@ -5,8 +5,9 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import YouTubeVideoDisplay from "./YouTubeVideoDisplay";
 
-function VideoTeachingDisplay({ caption,video,id }) {
+function VideoTeachingDisplay({ caption, video, videoDisplayHeight, videoDisplayWidth}) {
 
 	if (!video) {
 		return null
@@ -14,19 +15,14 @@ function VideoTeachingDisplay({ caption,video,id }) {
 
   return (
     <>
-      <Card sx={{ maxWidth: 1000 }} className="LessonText">
+      <Card sx={{ maxWidth: 1000 }} >
           <CardMedia
             component="div" // Use a div to create a custom container
-            alt="piano"
-            height="140"
-            style={{ position: "relative" }} >
-            <video
-              controls
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            >
-              <source src={video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            alt="youtube-video">
+            <YouTubeVideoDisplay 
+				video={video}
+				videoDisplayHeight={videoDisplayHeight}
+				videoDisplayWidth={videoDisplayWidth}/>
           </CardMedia>
           <CardContent>
             <Typography variant="body2" color="text.secondary">

@@ -8,6 +8,8 @@ function Lesson() {
 
 	const { id } = useParams();
 	const[lesson, setLesson] = useState([]);
+	const videoDisplayHeight = '360';
+	const videoDisplayWidth = '640';
 
 	useEffect(() => {
 
@@ -27,7 +29,8 @@ function Lesson() {
 				<VideoTeachingDisplay
 					caption={lesson.caption}
 					video={lesson.video}
-					id={lesson.id}></VideoTeachingDisplay>
+					videoDisplayHeight={videoDisplayHeight}
+					videoDisplayWidth={videoDisplayWidth} />
 			</div>
 			<div>
 				<DiscussionThreads lessonId={id}/>
