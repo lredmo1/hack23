@@ -5,9 +5,22 @@ import { useNavigate } from "react-router-dom";
 
 function LessonVideo({ caption, video, id }) {
 
+	function getYouTubeVideoId(url) {
+		const regex = /[?&]v=([^&]+)/;
+		const match = url.match(regex);
+		
+		if (match && match[1]) {
+		  return match[1]; 
+		} else {
+		  return null; 
+		}
+	  }
+
+	const videoID = getYouTubeVideoId(video)
+
 	const navigate = useNavigate();
 	const opts = {
-		// height: '360',
+		height: '100%',
 		width: '100%',
 		playerVars: {
 		  // https://developers.google.com/youtube/player_parameters
@@ -54,30 +67,21 @@ function LessonVideo({ caption, video, id }) {
 						alt="piano"
 						height="140"
 						style={{ position: "relative" }} >
-							<YouTube
-								videoId="62MOCMyPce0"
-								opts={opts}
-								onReady={onReady}
-								onPlay={onPlay}
-								onPause={onPause}
-								onEnd={onEnd}
-								onError={onError} />
-						{/* <iframe 
-							width="100%"
-							// padding-bottom="56.25"
-							src={'https://vimeo.com/846814754/0322669bee'}
-							frameborder="0"
-							title="video for the lesson"
-							allowfullscreen>
-						</iframe>	 */}
+						<YouTube
+							videoId={videoID}
+							apiKey="AIzaSyBg-bs6dpGzQo6MOA-v1oX1jdi5FhKGN1o"
+							opts={opts}
+							onReady={onReady}
+							onPlay={onPlay}
+							onPause={onPause}
+							onEnd={onEnd}
+							onError={onError} />
 					</CardMedia>
 
 					<CardContent>
 
 						<Typography variant="body2" color="text.secondary">
-							{/* <Link to={`/video-lesson/${id}`}> */}
-								{caption}
-								{/* </Link> */}
+							{caption}
 						</Typography>
 
 					</CardContent>
