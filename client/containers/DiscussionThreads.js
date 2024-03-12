@@ -91,7 +91,7 @@ function DiscussionThreads( {lessonId} ) {
 		// 	.then((resp) => resp.json())
 		// 	.then(setThreads)
 
-		fetch(`http://localhost:3000/threads/?lessonId=${lessonId}`)
+		fetch(`http://localhost:3000/video_uploads/${lessonId}/comments`)
 			.then((resp) => resp.json())
 			.then(setThreads)
 

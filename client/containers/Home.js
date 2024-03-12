@@ -16,7 +16,7 @@ const Home = () => {
 		<div>
 
 			<Link to="/create-video-lesson">
-				<Button className="button">
+				<Button className="button" disabled>
 					Create a Text Lesson
 				</Button>
 			</Link>

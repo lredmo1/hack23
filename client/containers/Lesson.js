@@ -17,7 +17,6 @@ function Lesson() {
 		fetch(`http://localhost:3000/video_uploads/${id}`)
 			.then((resp) => resp.json())
 			.then((resp) => {
-			console.log('aloha', resp)
 			setLesson(resp);
 			});
 
