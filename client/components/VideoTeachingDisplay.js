@@ -20,8 +20,7 @@ function VideoTeachingDisplay({ caption,video,id }) {
             component="div" // Use a div to create a custom container
             alt="piano"
             height="140"
-            style={{ position: "relative" }}
-          >
+            style={{ position: "relative" }} >
             <video
               controls
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
