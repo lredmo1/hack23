@@ -1,15 +1,18 @@
 import React from "react";
+import YouTube from 'react-youtube';
 import { Card, CardActionArea, CardContent, CardMedia, Typography,} from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import YouTubeVideoDisplay from "./YouTubeVideoDisplay";
 
 function LessonVideo({ caption, video, id }) {
 
 	const navigate = useNavigate();
+	const videoDisplayHeight = '100%';
+	const videoDisplayWidth = '100%';
 
-// TODO update to go to vide lesson display
-  const handleClickLesson = (evt) => {
-    navigate(`/video-lesson/${id}`);
-  };
+  	const handleClickLesson = (evt) => {
+    	navigate(`/video-lesson/${id}`);
+  	};
 
 	return (
 
@@ -24,21 +27,16 @@ function LessonVideo({ caption, video, id }) {
 						alt="piano"
 						height="140"
 						style={{ position: "relative" }} >
-						<video
-						controls
-						style={{ width: "100%", height: "100%", objectFit: "cover" }}
-						>
-						<source src={video} type="video/mp4" />
-						Your browser does not support the video tag.
-						</video>
+						<YouTubeVideoDisplay 
+							video={video}
+							videoDisplayHeight={videoDisplayHeight}
+							videoDisplayWidth={videoDisplayWidth} />
 					</CardMedia>
 
 					<CardContent>
 
 						<Typography variant="body2" color="text.secondary">
-							{/* <Link to={`/video-lesson/${id}`}> */}
-								{caption}
-								{/* </Link> */}
+							{caption}
 						</Typography>
 
 					</CardContent>
