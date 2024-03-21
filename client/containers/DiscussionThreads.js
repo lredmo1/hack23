@@ -121,7 +121,7 @@ function DiscussionThreads( {lessonId} ) {
 		<Card className="thread-container p-4 m-4" color="light">
 			<FormGroup class="pb-4" onSubmit={handleSubmit}>
 				<Label tag="h4">
-					{'Leave a Comment: '}
+					{'Leave A Comment: '}
 				</Label>
 				<Input 
 					name="content" 
