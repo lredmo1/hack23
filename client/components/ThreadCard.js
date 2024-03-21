@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Card, CardTitle, Button, Row, Col, FormGroup, Label, Input } from 'reactstrap';
 
 function ThreadCard( {thread, setThreads, lessonId} ) {
 
@@ -33,31 +34,42 @@ function ThreadCard( {thread, setThreads, lessonId} ) {
     }
 
 	const handleReply = () => {
-		setShowReplyForm(true)
+		setShowReplyForm((current) => !current)
 	}
 
 	return (
 		<>
-			<div className={'card'}>
-				{thread.content}
-				<div>
-					<button className="buttons" onClick={handleReply}>{'Reply'}</button>
-				</div>
-			</div>
+			<Card className="mt-2">
+				<Row>
+					<Col sm="10">
+						<CardTitle tag="h5" className='p-3'>
+							{thread.content}
+						</CardTitle>
+					</Col>
+					<Col>
+						<div className='d-flex justify-content-end m-3'>
+							<Button className="buttons" onClick={handleReply}>{showReplyForm ? 'Cancel' : 'Reply'}</Button>
+						</div>
+					</Col>
+				</Row>
+			</Card>
 			<div>
 				{showReplyForm ? 
-					<form onSubmit={handleSubmit} className="card">
-					<label>{'Reply: '}
-						<input 
+					<FormGroup onSubmit={handleSubmit} className="">
+						<Label className="mt-4" tag="h4">
+							{'Reply: '}
+						</Label>
+						<Input 
 							name="content" 
-							type="text" 
+							type="textarea" 
 							value={formData.content} 
 							onChange={handleChange} 
 							placeholder="Reply here..." required>
-						</input>
-					</label>
-					<button className='submit buttons' type="submit">{'Submit'}</button>
-					</form> :
+						</Input>
+						<div className=' d-flex justify-content-center'>
+            				<Button className='submit buttons m-4' type="submit">{'Submit'}</Button>
+						</div>					
+				</FormGroup> :
 					null } 
 			</div>
 		</>

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ThreadCard from '../components/ThreadCard';
-import "../stylesheets/DiscussionThreads.scss";
+import { Card, Button , FormGroup, Label, Input, Row, Col} from 'reactstrap';
+// import "../stylesheets/DiscussionThreads.scss";
 
 function DiscussionThreads( {lessonId} ) {
 
@@ -57,9 +58,22 @@ function DiscussionThreads( {lessonId} ) {
 	const [threads, setThreads] = useState([]);
 	const [formData, setFormData] = useState({ 
 		content: "",
-		userId: "654c51830aef36adde42f0a0",
-		teachingtext: lessonId,
+		// userId: "654c51830aef36adde42f0a0",
+		video_upload_id: lessonId,
 	})
+	const [csrfToken, setCsrfToken] = useState('');
+
+  useEffect(() => {
+    // Fetch the CSRF token from your Rails backend
+    fetch('http://localhost:3000/csrf_token')
+      .then(response => response.json())
+      .then(data => {
+        setCsrfToken(data.csrf_token);
+      })
+      .catch(error => {
+        console.error('Error fetching CSRF token:', error);
+      });
+  }, []);
 
 	const handleChange = (e) => {
 		let key = e.target.name
@@ -68,10 +82,14 @@ function DiscussionThreads( {lessonId} ) {
 	}
 
 	function handleSubmit(e) {
+		console.log('hi')
         e.preventDefault()
-        fetch("http://localhost:3000/thread", {
+        fetch(`http://localhost:3000/video_uploads/${lessonId}/comments`, {
             method: "POST",
-            headers: {"Content-Type":"application/json"},
+            headers: {
+				"Content-Type":"application/json",
+				'X-CSRF-Token': csrfToken
+			},
             body:JSON.stringify(formData)
         })
         .then(resp => resp.json())
@@ -91,7 +109,7 @@ function DiscussionThreads( {lessonId} ) {
 		// 	.then((resp) => resp.json())
 		// 	.then(setThreads)
 
-		fetch(`http://localhost:3000/threads/?lessonId=${lessonId}`)
+		fetch(`http://localhost:3000/video_uploads/${lessonId}/comments`)
 			.then((resp) => resp.json())
 			.then(setThreads)
 
@@ -100,21 +118,24 @@ function DiscussionThreads( {lessonId} ) {
 	const threadCards = threads.map((thread, index) => <ThreadCard thread={thread} key={index} setThreads={setThreads} lessonId={lessonId}/>)
 
 	return (
-		<div className="thread-container">
-			<form onSubmit={handleSubmit}>
-            <label>{'Leave a Comment: '}
-				<input 
+		<Card className="thread-container p-4 m-4" color="light">
+			<FormGroup class="pb-4" onSubmit={handleSubmit}>
+				<Label tag="h4">
+					{'Leave a Comment: '}
+				</Label>
+				<Input 
 					name="content" 
-					type="text" 
+					type="textarea" 
 					value={formData.content} 
 					onChange={handleChange} 
 					placeholder="Comment here..." required>
-				</input>
-			</label>
-            <button className='submit buttons' type="submit">{'Submit'}</button>
-        	</form>
+				</Input>
+        	</FormGroup>
+			<div className=' d-flex justify-content-center mb-5'>
+            	<Button className='submit buttons mx-1' type="submit">{'Submit'}</Button>
+			</div>
 			{threadCards}
-		</div>
+		</Card>
 	);
 
 };

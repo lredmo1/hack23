@@ -61,7 +61,7 @@ function AllLessons() {
 
 			<div className="all-lessons">
 
-			<h1>Text Lessons</h1>
+			{/* <h1>Text Lessons</h1>
 
 				<div className="lesson-cards">
 
@@ -80,7 +80,7 @@ function AllLessons() {
 						);
 					})}
 
-				</div>
+				</div> */}
 
 			<h1>Video Lessons</h1>
 
